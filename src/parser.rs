@@ -18,7 +18,10 @@ pub fn parse(input: &str) -> IResult<&str, Vec<Statement>> {
 fn parse_graph(input: &str) -> IResult<&str, Vec<Statement>> {
     delimited(
         ignored,
-        separated_list1(pair(alt((sep(";"), sep("\n"))), ignored), parse_statement),
+        separated_list1(
+            pair(alt((sep(";"), sep("\n"), sep("\r\n"), sep("\r"))), ignored),
+            parse_statement,
+        ),
         ignored,
     )(input)
 }
