@@ -26,7 +26,7 @@ fn parse_graph(input: &str) -> IResult<&str, Vec<Statement>> {
 // Parsing a statement
 
 fn parse_statement(input: &str) -> IResult<&str, Statement> {
-    alt((parse_decl, parse_subgraph, parse_path))(input)
+    alt((parse_path, parse_decl, parse_subgraph))(input)
 }
 
 fn parse_subgraph(input: &str) -> IResult<&str, Statement> {
@@ -56,7 +56,10 @@ fn parse_inline_decl(input: &str) -> IResult<&str, Statement> {
 fn parse_path(input: &str) -> IResult<&str, Statement> {
     map(
         pair(
-            separated_list1(space1, parse_path_id),
+            verify(
+                separated_list1(space1, parse_path_id),
+                |ids: &Vec<PathId>| ids.len() >= 2,
+            ),
             opt(preceded(sep(":"), parse_attrs)),
         ),
         |(ids, attrs)| Statement::Path { ids, attrs },
