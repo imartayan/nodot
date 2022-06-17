@@ -2,6 +2,8 @@
 
 > A very simple graph parser with visualization options and export to dot format
 
+<p align="center"><img src="examples/web.png" alt="Web graph" width="40%"/></p>
+
 `nodot` aims to simplify the process of parsing raw graphs and visualizing them.
 It can directly read a graph as a list of edges (or a list of paths), and it also supports many features of [Graphviz](https://graphviz.org/) such as style options or subgraphs.
 
