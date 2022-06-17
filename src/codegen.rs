@@ -4,7 +4,7 @@ const INDENT: &str = "  ";
 
 pub fn graph_to_str(ast: &[Statement], directed: bool, autolabel: bool, shape: String) -> String {
     format!(
-        "{} {{\n{}overlap=false;\n{}node [{}shape={}, style=filled, fillcolor=\"#ffffff00\"];\n{}\n}}",
+        "{} {{\n{}overlap=false\n{}node [{}shape={}, style=filled, fillcolor=\"#ffffff00\"]\n{}\n}}",
         if directed { "digraph" } else { "graph" },
         INDENT,
         INDENT,
