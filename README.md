@@ -1,9 +1,9 @@
 # Nodot
 
-> A very simple graph parser with visualization options and export to `dot` format
+> A very simple graph parser with visualization options and export to dot format
 
 `nodot` aims to simplify the process of parsing raw graphs and visualizing them.
-It can directly read a graph as a list of edges (or a list of paths), and it also supports many features of `graphviz` such as style options or subgraphs.
+It can directly read a graph as a list of edges (or a list of paths), and it also supports many features of [Graphviz](https://graphviz.org/) such as style options or subgraphs.
 
 By default, `nodot` assumes that the graph is undirected, disables the labels and renders the graph using the [neato](https://graphviz.org/docs/layouts/neato/) engine.
 
@@ -35,7 +35,7 @@ The binary will then be located at `target/release/nodot`.
 
 Alternatively, you can run it directly with cargo: `cargo run -r -- <ARGS>`.
 
-If you want to export visualizations, make sure to [install graphviz](https://www.graphviz.org/download/) first.
+If you want to export visualizations, make sure to [install Graphviz](https://www.graphviz.org/download/) first.
 
 ## Examples
 
