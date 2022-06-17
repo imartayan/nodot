@@ -1,0 +1,8 @@
+// https://graphviz.org/Gallery/undirected/transparency.html
+5: fillcolor="#0000ff80"
+6: fillcolor="#ee00ee80"
+1: fillcolor="#ff000080"
+2: fillcolor="#eeee0080"
+3: fillcolor="#00ff0080"
+4: fillcolor="#00eeee80"
+1 2 3 4 5 6 1: style="dashed"
