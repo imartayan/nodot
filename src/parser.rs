@@ -38,16 +38,6 @@ fn parse_subgraph(input: &str) -> IResult<&str, Statement> {
 
 fn parse_decl(input: &str) -> IResult<&str, Statement> {
     map(
-        pair(parse_decl_id, preceded(sep(":"), parse_attrs)),
-        |(id, attrs)| Statement::Decl {
-            id,
-            attrs: Some(attrs),
-        },
-    )(input)
-}
-
-fn parse_inline_decl(input: &str) -> IResult<&str, Statement> {
-    map(
         pair(parse_decl_id, opt(preceded(sep(":"), parse_attrs))),
         |(id, attrs)| Statement::Decl { id, attrs },
     )(input)
@@ -81,7 +71,7 @@ fn parse_path_id(input: &str) -> IResult<&str, PathId> {
         map(
             delimited(
                 pair(tag("{"), space0),
-                separated_list1(alt((sep(";"), space1)), parse_inline_decl),
+                separated_list1(alt((sep(";"), space1)), parse_decl),
                 pair(space0, tag("}")),
             ),
             PathId::Subgraph,
