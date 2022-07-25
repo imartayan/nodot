@@ -1,6 +1,6 @@
 # Nodot
 
-> A very simple graph parser with visualization options and export to dot format
+> A simple graph parser with visualization options and export to dot
 
 <p align="center"><img src="examples/web.png" alt="Web graph" width="40%"/></p>
 
